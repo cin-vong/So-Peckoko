@@ -1,10 +1,10 @@
-require('dotenv').config()// Cache BDD Mongoose
 const express = require('express');
 const helmet = require("helmet");// Sécuriser =>  permet de gérer la création des Headers pour utiliser les headers les plus appropriés et les plus sécurité pour l'application.
 const rateLimit = require("express-rate-limit");// Utilisez pour limiter les demandes répétées aux API publiques et / ou aux points de terminaison tels que la réinitialisation du mot de passe (Empeche une entrée de force brute)
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')// Analyser les cookies pour chaque requête effectué
 const mongoose = require('mongoose');
+const mongoSanitize = require('express-mongo-sanitize');// Permet de se défendre contre les attaques d'injections
 const path = require('path');
 const cors = require('cors');// autorise les requêtes
 
@@ -15,6 +15,7 @@ const app = express();
 app.use(cookieParser())
 app.use(cors());
 app.use(helmet());
+app.use(mongoSanitize()); 
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
