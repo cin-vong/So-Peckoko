@@ -3,7 +3,7 @@
 Cloner le projet.
 Aller sur NodeJS.org puis telécharger.
 Installer Node.js pour l'exécution des serveurs Node.
-Aller vers le dossier nodejs puis npm et insérer node_module des 2 dossiers backend et front end.
+Initialiser un dépôt Git en exécutant git init depuis le dossier backend.
 
 I. Backend
 
